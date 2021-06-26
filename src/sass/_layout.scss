@@ -1,0 +1,30 @@
+
+.container {
+    max-width: 80rem;
+    margin: 15rem auto;
+    box-shadow: var(--shadow-dark);
+
+    @media only screen and (max-width: $bp-largest) {
+        margin: 0;
+        max-width: 100%;
+        margin: 15rem auto;
+        width: 100%;
+    }
+}
+
+.header {
+    width: 100vw;
+    min-height: 8rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right bottom, var(--color-white),  var(--color-grey-dark-4));
+    z-index: 9;
+    box-shadow: 0 0.5rem 6rem #9e1d1d;
+}
+
+.footer {
+    width: 100%;
+    min-height: 20rem;
+    background-image: linear-gradient(to right bottom, var(--color-grey-dark-1),  var(--color-black-dark-1));
+}

@@ -5,7 +5,7 @@ import {TableHeaders} from '../constants/Labels'
 import * as actions from '../actions';
 import {findAirQuality} from '../utility/calculateAirQuality';
 
-const client = new W3CWebSocket('ws://city-ws.herokuapp.com/‌');
+const client = new W3CWebSocket('wss://city-ws.herokuapp.com/‌');
 class DashBoard extends Component {
 
     componentDidMount() {

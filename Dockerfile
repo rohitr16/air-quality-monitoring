@@ -1,4 +1,4 @@
-FROM node:9.0.0 AS builder
+FROM node:14.1-alpine AS builder
 
 WORKDIR /opt/web
 

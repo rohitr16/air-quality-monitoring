@@ -1,12 +1,12 @@
-FROM node:9.0.0
+FROM node:9.0.0 AS builder
 
 WORKDIR /app
 
-COPY package.json .
+COPY package.json ./
 
 RUN npm install
 
-COPY . .
+COPY . ./
 
 RUN npm run buildReact
 
@@ -14,5 +14,5 @@ FROM nginx
 
 EXPOSE 80
 
-COPY --from=0 /app/build /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
 

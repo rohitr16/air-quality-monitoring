@@ -169,9 +169,9 @@ blockquote {
   .container__button {
     color: #0c0101;
     font-size: 3rem;
-    padding: 5px 10px;
+    padding: 7px 10px;
     box-shadow: 0 0rem 1rem #7b6d6d;
-    border-radius: 5px;
+    border-radius: 20px;
     background-image: linear-gradient(to right bottom, #80e2d5, #127b63); }
 
 .header {
@@ -199,11 +199,6 @@ blockquote {
       font-size: 1.2rem;
       font-family: monospace;
       color: #e0c99d; }
-
-.footer {
-  width: 100%;
-  min-height: 20rem;
-  background-image: linear-gradient(to right bottom, #000000, #0b4213); }
 
 .back_button {
   font-size: 4rem;
@@ -255,7 +250,10 @@ blockquote {
   background-color: #333;
   padding: 10rem 0;
   font-size: 1.4rem;
-  color: #f7f7f7; }
+  color: #f7f7f7;
+  width: 100%;
+  min-height: 20rem;
+  background-image: linear-gradient(to right bottom, #216332, #000000); }
   @media only screen and (max-width: 56.25em) {
     .footer {
       padding: 8rem 0; } }

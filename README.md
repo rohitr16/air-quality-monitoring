@@ -61,7 +61,7 @@ This section represents the aqi values of different cities in the form of bar ch
 
 ### CI
 
-This repo has been integrated with travis CI from builds and heroku for continuos deployment.
+This repo has been integrated with travis CI for builds and heroku for continuos deployment.
   Builds will be triggered for all the PR and bracnhes automatically, But deployment is enabled for only Main branch.
   
 

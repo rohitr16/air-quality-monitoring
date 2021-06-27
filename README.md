@@ -73,7 +73,7 @@ This repo has been integrated with travis CI for builds and heroku for continuos
 ### Deployment
 
   Once a PR is merged to main , if the builds and test cases are successful, it gets deployed to heroku with a docker container stack.
-  This repo is also configured to be deployed on AWS Elastic Bean Stalk Serber like heroku.
+  This repo is also configured to be deployed on AWS Elastic Bean Stalk Server With a docker env.
 
 ## External Libraries used
   

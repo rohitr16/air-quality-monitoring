@@ -21,7 +21,9 @@ table {
   
   *{ position:relative }
   
-  td,th { padding:10px 25px}
+  td,th { 
+    padding:10px 25px
+  }
 
   thead tr { 
     height:60px;
@@ -30,7 +32,9 @@ table {
   }
   
   tbody tr { 
-    height:48px; border-bottom:1px solid #E3F1D5 ;
+    height:48px;
+    cursor: pointer; 
+    border-bottom:1px solid #E3F1D5 ;
     font-size: 16px;
     font-weight: 500;
     &:last-child { 
@@ -78,14 +82,25 @@ table {
   background-image: linear-gradient(to right bottom, #d81616, #5d0b0b);
 }
 
-@media #{$gl-xs}{
-  
-  table { display:block;
-	  > *,tr,td,th { display:block }   
-    thead { display:none }
-    tbody tr { height:auto; padding:8px 0px;
-      td { padding-left:45%; margin-bottom:12px;
-        &:last-child { margin-bottom:0 }
+@media #{$gl-xs}{  
+  table { 
+    display:block;
+	  > *,tr,td,th { 
+      display:block 
+    }   
+    thead { 
+      display:none 
+    }
+    tbody tr { 
+      height:auto; 
+      padding:8px 0px; 
+      cursor: pointer;
+      td { 
+        padding-left:45%; 
+        margin-bottom:12px;
+        &:last-child { 
+          margin-bottom:0 
+        }
         &:before { 
           position:absolute;
           font-weight:700;

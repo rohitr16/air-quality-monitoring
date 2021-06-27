@@ -1,31 +1,25 @@
 import React, {Component} from 'react';
-import { w3cwebsocket as W3CWebSocket } from "websocket";
 import {connect} from 'react-redux';
 import {TableHeaders} from '../constants/Labels'
 import * as actions from '../actions';
 import {findAirQuality} from '../utility/calculateAirQuality';
+import { Link } from 'react-router-dom';
 
-const client = new W3CWebSocket('wss://city-ws.herokuapp.com/‌');
 class DashBoard extends Component {
 
     componentDidMount() {
-        const {setAqiData} = this.props;
-        client.onopen = () => {
-            console.log("Client connected");
-        };
-        client.onmessage = (message) => {
-            const{data} = message;
-            const dataFormatted = JSON.parse(data);
-            const aqiData = {};
-            dataFormatted.forEach((item) => {
-                aqiData[item.city] = {...item, lastUpdated: new Date(Date.now())};
-            });
-            setAqiData(aqiData);
-        }
+        const {getAqiData} = this.props;
+        getAqiData();
     }
 
     roundToTwo(number) {
         return +(Math.round(number + "e+2") + "e-2");
+    }
+
+    onClickRow = (city) => {
+        const{history, setCurrentCity} = this.props;
+        setCurrentCity(city);
+        history.push(`/cityDetails/${city}`);
     }
 
     renderTableRows(aqiData) {
@@ -35,11 +29,15 @@ class DashBoard extends Component {
                     const value = aqiData[item];
                     const airQualityMap = findAirQuality(value.aqi);
                     return (
-                        <tr key={value.city} className={airQualityMap.colour}>
+                        <tr 
+                            key={value.city} 
+                            className={airQualityMap.colour} 
+                            onClick={() => this.onClickRow(value.city)}
+                        >
                             <td>{value.city}</td>
                             <td>{this.roundToTwo(value.aqi)}</td>
                             <td>{airQualityMap.airQuality}</td>
-                            <td>{value.lastUpdated.toDateString()+ value.lastUpdated.toLocaleTimeString()}</td>
+                            <td>{value.lastUpdated.toLocaleTimeString()}</td>
                         </tr>
                     )
                 })}
@@ -51,6 +49,9 @@ class DashBoard extends Component {
         const {aqiData} = this.props;
         return(
             <div className="container">
+                <Link  to="/cityCompChart" className="container__link" >
+                    <span className="container__button">Show Chart</span>
+                </Link>
                 <table>
                     <thead>
                         <tr>

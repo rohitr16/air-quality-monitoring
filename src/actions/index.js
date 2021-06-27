@@ -1,9 +1,42 @@
+import { w3cwebsocket as W3CWebSocket } from "websocket";
 import ActionTypes from './ActionTypes';
+import {Resource} from '../constants/Url'
 
-export const setAqiData = (data) => (dispatch) => {
-    dispatch({type: ActionTypes.GET_AQI_DATA, payload: data});
+export const getAqiData = () => (dispatch) => {
+        const client = new W3CWebSocket(Resource.URI)
+        client.onerror = (error) => {
+            console.log(error);
+        };
+        client.onopen = () => {
+            console.log("Client connected");
+        };
+        client.onmessage = (message) => {
+            const{data} = message;
+            const dataFormatted = JSON.parse(data);
+            const aqiData = {};
+            dataFormatted.forEach((item) => {
+                aqiData[item.city] = {...item, lastUpdated: new Date(Date.now())};
+            });
+            dispatch({type: ActionTypes.SET_AQI_DATA, payload: aqiData});
+        }
+    
 };
 
 export const clearAqiData = () => (dispatch) => {
     dispatch({type: ActionTypes.CLEAR_AQI_DATA});
 };
+
+export const setCityDetails = (data) => (dispatch) => {
+    dispatch({type: ActionTypes.SET_CITY_DETAILS, payload: data});;
+};
+
+export const setCurrentCity = (city) => (dispatch) => {
+    dispatch({type: ActionTypes.SET_CURRENT_CITY, payload: city});
+};
+
+export const clearCurrentCity = () => (dispatch) => {
+    dispatch({type: ActionTypes.CLEAR_CURR_CITY});
+};
+
+
+

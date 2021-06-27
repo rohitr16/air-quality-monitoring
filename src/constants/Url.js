@@ -1,6 +1,6 @@
 
 export const Resource = {
-    URI: "wss://cty-ws.herokuapp.com/"
+    URI: "wss://city-ws.herokuapp.com/"
 };
 
 export const Image = {

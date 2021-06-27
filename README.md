@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Air Quality React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,12 +14,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `npm run test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,42 +29,48 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
+## Components
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### Dashboard
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This section mainly shows the list of cities along with their air quality intdex values and the quality in absolute terms.
+  It represents data in a tabular form , where each row is a city.
+  If you click on any of the rows , you will be redirected to details page containing some more info about the quality of air of that city.
+  The Show Charts button on top redirects you to a page where you can see comparision of different cities in the form of bar charts.
 
-### Analyzing the Bundle Size
+### City Details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This component contains two graphical representation of a citiy's data. 
+  The graph on the left shows the trends of air quality index value for a particualr city. The data is represented in the form of line chart
+  Once you open it up, it updates itself continuously with data of last few minutes or hours, it can be configured.
+  
+  The graph on the right shows the comparision of citiy's aqi value with respect to baest and worst values in the from of a bar chart
 
-### Making a Progressive Web App
+### Comaprision Char
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This section represents the aqi values of different cities in the form of bar chart.
 
-### Advanced Configuration
+## CI/CD
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## CI
+
+This repo has been integrated with travis CI from builds and heroku for continuos deployment.
+  Builds will be triggered for all the PR and bracnhes automatically, But deployment is enabled for only Main branch.
+  
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  Once a PR is merged to main , if the builds and test cases are successful, it gets deployed to heroku with a docker container stack.
 
-### `yarn build` fails to minify
+## External Libraries used
+  
+  ### Graphing
+    For graphs I have used Plotly (based on D3.js) as it has vast community support and a generous documentation. Supports different Javascript 
+     frameworks like React, Vue, etc. Also its is quite easy to integrate and its open source.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+

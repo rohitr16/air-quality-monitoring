@@ -39,7 +39,9 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Dashboard
 
 This section mainly shows the list of cities along with their air quality intdex values and the quality in absolute terms.
-  It represents data in a tabular form , where each row is a city.
+
+  It represents data in a tabular form , where each row is a city. The back ground of each row changes based on the cities aqi values.
+  
   If you click on any of the rows , you will be redirected to details page containing some more info about the quality of air of that city.
   The Show Charts button on top redirects you to a page where you can see comparision of different cities in the form of bar charts.
 
@@ -57,7 +59,7 @@ This section represents the aqi values of different cities in the form of bar ch
 
 ## CI/CD
 
-## CI
+### CI
 
 This repo has been integrated with travis CI from builds and heroku for continuos deployment.
   Builds will be triggered for all the PR and bracnhes automatically, But deployment is enabled for only Main branch.
@@ -66,11 +68,22 @@ This repo has been integrated with travis CI from builds and heroku for continuo
 ### Deployment
 
   Once a PR is merged to main , if the builds and test cases are successful, it gets deployed to heroku with a docker container stack.
+  This repo is also configured to be deployed on AWS Elastic Bean Stalk Serber like heroku.
 
 ## External Libraries used
   
-  ### Graphing
-    For graphs I have used Plotly (based on D3.js) as it has vast community support and a generous documentation. Supports different Javascript 
-     frameworks like React, Vue, etc. Also its is quite easy to integrate and its open source.
+### Graphing
+  For graphs I have used Plotly (based on D3.js) as it has vast community support and a generous documentation. Supports different Javascript 
+   frameworks like React, Vue, etc. Also its is quite easy to integrate and its open source.
 
-
+## Development Time Taken
+  Integrating CI/CD took around 2-3 hrs as I was facing some issues related to deployment on AWS server.
+  
+  The overall development took around 7-8 hours divided over two days  including all the graphing libraries integration and styling the web page.
+  
+## Error Scenarios
+  Following are the considerations the came to my mind for handling error scenarios:
+    1. Redirect user to a error page in case the client is not able to connect to websocket .
+    2. Use srvice workers to cache the data and show it to the client , but obviuosly the data will be stale but still we have the last Updated info, so the
+        user will be aware.
+    3. Provide a Retry button to user and after some configurable no of retries , he will be redirected to The error Page.

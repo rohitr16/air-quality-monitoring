@@ -83,7 +83,7 @@ This repo has been integrated with travis CI from builds and heroku for continuo
   
 ## Error Scenarios
   Following are the considerations the came to my mind for handling error scenarios:
-    1. Redirect user to a error page in case the client is not able to connect to websocket .
-    2. Use srvice workers to cache the data and show it to the client , but obviuosly the data will be stale but still we have the last Updated info, so the
-        user will be aware.
-    3. Provide a Retry button to user and after some configurable no of retries , he will be redirected to The error Page.
+  1.  Redirect user to a error page in case the client is not able to connect to websocket .
+  2.  Use srvice workers to cache the data and show it to the client , but obviuosly the data will be stale but still we have the last Updated info, so the
+      user will be aware.
+  3.  Provide a Retry button to user and after some configurable no of retries , he will be redirected to The error Page.

@@ -57,6 +57,11 @@ This component contains two graphical representation of a citiy's data.
 
 This section represents the aqi values of different cities in the form of bar chart.
 
+### Error
+
+This is the error page that the user will be redirected to incase the connection to websocket fails.
+It contains a button which lets the user go back to home page if its an intermittent issue like connectivity failure.
+
 ## CI/CD
 
 ### CI

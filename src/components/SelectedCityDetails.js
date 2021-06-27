@@ -18,7 +18,8 @@ class SelectedCityDetails extends Component {
     }
 
     componentDidMount() {
-        const {getAqiData, match, setCurrentCity, cityAqiDetailsData = {}, aqiData = {}, setCityDetails} = this.props;      
+        const {getAqiData, match, setCurrentCity, cityAqiDetailsData = {}, 
+        aqiData = {}, setCityDetails, history} = this.props;      
         const {currentCity} = cityAqiDetailsData;
         if (!currentCity) {
             const {params} = match;
@@ -28,7 +29,7 @@ class SelectedCityDetails extends Component {
             let timeline = cityAqiDetailsData[currentCity] || [];
             this.popAndPush(timeline, cityData, setCityDetails);                   
         } 
-        getAqiData();
+        getAqiData(history);
     }
 
     componentDidUpdate() {

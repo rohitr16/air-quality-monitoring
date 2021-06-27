@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 class DashBoard extends Component {
 
     componentDidMount() {
-        const {getAqiData} = this.props;
-        getAqiData();
+        const {getAqiData, history} = this.props;
+        getAqiData(history);
     }
 
     roundToTwo(number) {

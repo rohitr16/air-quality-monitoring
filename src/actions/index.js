@@ -2,10 +2,10 @@ import { w3cwebsocket as W3CWebSocket } from "websocket";
 import ActionTypes from './ActionTypes';
 import {Resource} from '../constants/Url'
 
-export const getAqiData = () => (dispatch) => {
+export const getAqiData = (history) => (dispatch) => {
         const client = new W3CWebSocket(Resource.URI)
         client.onerror = (error) => {
-            console.log(error);
+            history.push('/error');
         };
         client.onopen = () => {
             console.log("Client connected");

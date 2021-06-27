@@ -5,6 +5,7 @@ import * as actions from '../actions'
 import Plotly from "plotly.js"
 import createPlotlyComponent from 'react-plotly.js/factory';
 import {findAirQuality} from '../utility/calculateAirQuality';
+import {Image} from '../constants/Url'
 
 const Plot = createPlotlyComponent(Plotly);
 
@@ -16,8 +17,8 @@ class CityComparisionChart extends Component {
     }
 
     componentDidMount() {
-        const {getAqiData} = this.props;      
-        getAqiData();
+        const {getAqiData, history} = this.props;      
+        getAqiData(history);
     }
 
     mapToArray(aqiData) {
@@ -40,7 +41,7 @@ class CityComparisionChart extends Component {
         return (
             <div className="details">
                 <Link  to="/" onClick={this.handleBack} className="details__link" >
-                    <span className="back_button"><img src="https://img.icons8.com/color-glass/50/000000/circled-chevron-left.png"/> </span>
+                    <span className="back_button"><img src={Image.BACK_BUTTON} alt="Back"/> </span>
                 </Link>
                 <div className="details__box">
                     <h1 className="details__header">Comparision Chart</h1>
